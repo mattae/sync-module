@@ -1,0 +1,53 @@
+<div class="lamis-edit-form">
+    <div class="lamis-edit-form-container">
+        <mat-card>
+            <mat-card-header *ngIf="installed">
+                <mat-card-title>
+                    <p style="color: green">
+                        Updates installed; please restart service or system
+                    </p>
+                </mat-card-title>
+            </mat-card-header>
+            <ng-container *ngIf="!completeChecking && checked">
+                <div class="full-width">
+                    <mat-progress-bar class="full-width" mode="indeterminate"></mat-progress-bar>
+                </div>
+            </ng-container>
+            <mat-card-content>
+                <adf-card-view [properties]="properties" editable="false"></adf-card-view>
+                <mat-divider [inset]="true"></mat-divider>
+                <div class="row" *ngIf="modules">
+                    <div class="col-sm-12 col-md-6 col-lg-4"
+                         *ngFor="let module of modules">
+                        <mat-card class="">
+                            <mat-card-content>
+                                <adf-card-view [properties]="getProperties(module)"></adf-card-view>
+                            </mat-card-content>
+                        </mat-card>
+                    </div>
+                </div>
+                <adf-empty-content
+                        *ngIf="!modules.length && checked && completeChecking"
+                        icon="group"
+                        [title]="'No updates available'">
+                </adf-empty-content>
+                <mat-divider></mat-divider>
+                <mat-card-actions style="text-align: right !important;">
+                    <button mat-raised-button type="button" (click)="previousState()">Back</button>
+                    <button mat-raised-button color='accent'
+                            (click)="checkForUpdates()"
+                            [disabled]="!completeChecking && checked || isUpdating || !serverContacted"
+                            type="button">
+                        Check for Updates
+                    </button>
+                    <button mat-raised-button color='primary' *ngIf="!!modules.length"
+                            (click)="updateModules()"
+                            [disabled]="!completeChecking && checked || isUpdating"
+                            type="button">
+                        Install Updates
+                    </button>
+                </mat-card-actions>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

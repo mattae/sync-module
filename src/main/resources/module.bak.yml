@@ -1,0 +1,48 @@
+basePackage: org.fhi360.lamis.modules.database
+name: LAMISDatabaseSyncModule
+dependencies: {LamisLegacyModule: 1.2.0}
+bundledAuthorities:
+  - id: ROLE_MODULE_MANAGEMENT
+    name: Module Management
+store: true
+menus:
+  - name: Reporting
+    state: reporting
+    position: 70
+    icon: content_paste
+    subs:
+    - state: upload-report
+      name: Database Upload Report
+      icon: keyboard_tab
+      type: LINK
+      authorities: [ROLE_MODULE_MANAGEMENT]
+  - name: Administration
+    state: admin
+    subs:
+      - state: modules-update
+        name: Module Update
+        icon: keyboard_tab
+        authorities: [ROLE_MODULE_MANAGEMENT]
+      - state: config
+        name: Facility Configuration
+        icon: keyboard_tab
+        subs:
+          - state: module-updates
+            name: Module Updates
+            icon: keyboard_tab
+            type: LINK
+          - state: database-sync
+            name: Database Sync
+            icon: keyboard_tab
+            type: LINK
+umdLocation: /across/resources/static/database/js/bundles/lamis-database-1.2.0.umd.min.js
+webModules:
+  - name: UpdatesModule
+    path: admin/config/module-updates
+    position: 99
+  - name: DatabaseSyncModule
+    path: admin/config/database-sync
+  - name: ModulesUpdateModule
+    path: admin/modules-update
+  - name: UploadReportModule
+    path: reporting

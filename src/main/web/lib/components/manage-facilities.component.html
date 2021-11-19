@@ -1,0 +1,17 @@
+<div class="lamis-edit-form">
+    <div class="lamis-edit-form-container">
+        <mat-card>
+            <mat-card-header>
+            </mat-card-header>
+            <mat-card-content>
+                <adf-card-view [properties]="properties" editable="false"></adf-card-view>
+                <mat-divider></mat-divider>
+            </mat-card-content>
+            <mat-card-actions class="lamis-edit-form-actions">
+                <button mat-button (click)="previousState()">Back</button>
+                <button mat-raised-button color="warn" (click)="delete()">Delete</button>
+                <button mat-raised-button color="primary" (click)="edit()">Edit</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>

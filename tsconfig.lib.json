@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+      "experimentalDecorators": true,
+    "outDir": "target/www/app",
+    "target": "es6",
+    "module": "es2015",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "inlineSources": true,
+    "importHelpers": true,
+    "types": [],
+    "lib": [
+      "dom",
+      "es2018"
+    ]
+  },
+  "angularCompilerOptions": {
+    "annotateForClosureCompiler": true,
+    "skipTemplateCodegen": true,
+    "strictMetadataEmit": true,
+    "strictInjectionParameters": true,
+    "enableResourceInlining": true
+  },
+  "exclude": [
+    "src/main/web/test.ts",
+    "**/*.spec.ts"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "compilerOptions": {
+    "rootDir": "./src",
+    "noImplicitAny": false,
+    "strictFunctionTypes": false,
+    "baseUrl": ".",
+    "paths": {
+      "@angular/*": [
+        "./node_modules/@angular/*"
+      ],
+      "@alfresco/*": [
+        "./node_modules/@alfresco/*"
+      ],
+      "@rxjs/*": [
+        "./node_modules/rxjs/*"
+      ]
+    },
+    "outDir": "./src/main/resources/views/patient/js",
+    "declaration": true,
+    "strict": false,
+    "strictPropertyInitialization": false,
+    "moduleResolution": "node",
+    "module": "es2015",
+    "target": "es2015",
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "skipLibCheck": true,
+    "types": [],
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "sourceMap": true,
+    "inlineSources": true,
+    "importHelpers": true
+  },
+  "files": [
+    "./src/main/web/public_api.ts",
+    "./node_modules/zone.js/dist/zone.js.d.ts"
+  ],
+  "angularCompilerOptions": {
+    "strictFunctionTypes": false,
+    "enableResourceInlining": true,
+    "skipTemplateCodegen": true,
+    "annotateForClosureCompiler": true,
+    "strictMetadataEmit": true,
+    "flatModuleOutFile": "lamis-egret.js",
+    "flatModuleId": "@lamis/egret"
+  }
+}

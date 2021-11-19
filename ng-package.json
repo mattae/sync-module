@@ -1,0 +1,23 @@
+ {
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "./src/main/resources/views/patient/js/@lamis/patient",
+  "lib": {
+    "entryFile": "./src/main/web/public_api.ts",
+    "umdModuleIds": {
+      "perfect-scrollbar": "perfect-scrollbar",
+      "@angular/platform-browser/animations": "@angular/platform-browser/animations",
+      "@angular/material": "@angular/material",
+      "@alfresco/adf-core": "@alfresco/adf-core",
+      "@lamis/web-core": "@lamis/web-core",
+      "@angular/flex-layout": "@angular/flex-layout",
+      "@angular/material-moment-adapter": "@angular/material-moment-adapter",
+      "@angular/animations": "@angular/animations",
+      "@angular/cdk/platform": "@angular/cdk/platform",
+      "@angular/material/core": "@angular/material/core",
+      "@angular/core": "@angular/core",
+      "moment-es6": "moment-es6",
+      "moment/src/moment": "moment/src/moment",
+      "@ngx-translate/core": "@ngx-translate/core"
+    }
+  }
+}

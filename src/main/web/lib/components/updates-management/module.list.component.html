@@ -1,0 +1,32 @@
+<mat-card>
+    <mat-card-header>
+        Modules Update
+    </mat-card-header>
+    <mat-card-content>
+        <div class="row" *ngIf="modules">
+            <div class="col-sm-12 col-md-6 col-lg-4"
+                 *ngFor="let module of modules">
+                <mat-card class="">
+                    <mat-card-content>
+                        <adf-card-view [properties]="getProperties(module)"></adf-card-view>
+                    </mat-card-content>
+                    <mat-card-actions style="text-align: right !important;">
+                        <button mat-raised-button color="accent" type="button" (click)="uninstall(module)">Set for Uninstall</button>
+                        <button mat-raised-button type="button" (click)="update(module)">Update</button>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+        </div>
+        <mat-divider></mat-divider>
+        <mat-card-actions style="text-align: right !important;">
+            <button mat-raised-button type="button" (click)="previousState()">Back</button>
+        </mat-card-actions>
+    </mat-card-content>
+</mat-card>
+<div class="fab-container">
+    <button mat-fab
+            [matTooltip]="'Add Update'"
+            [routerLink]="['new']">
+        <mat-icon>add</mat-icon>
+    </button>
+</div>

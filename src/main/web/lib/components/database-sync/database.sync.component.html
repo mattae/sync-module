@@ -1,0 +1,57 @@
+<div class="lamis-edit-form">
+    <div class="lamis-edit-form-container">
+        <mat-card>
+            <ng-container *ngIf="syncing">
+                <div class="full-width">
+                    <mat-progress-bar class="full-width" mode="indeterminate"></mat-progress-bar>
+                </div>
+            </ng-container>
+            <mat-card-header>
+                <mat-card-title>Synchronize Database to Server</mat-card-title>
+                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Biometrics options">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="uploadBiometrics()" [disabled]="!serverContacted">
+                        <mat-icon>file_upload</mat-icon>
+                        <span>Sync Biometrics</span>
+                    </button>
+                    <button mat-menu-item (click)="downloadBiometrics()" [disabled]="!serverContacted">
+                        <mat-icon>file_download</mat-icon>
+                        <span>Download Biometrics</span>
+                    </button>
+                </mat-menu>
+            </mat-card-header>
+            <mat-card-content>
+                <adf-card-view [properties]="properties" [editable]="false"></adf-card-view>
+                <mat-divider [inset]="true"></mat-divider>
+                <mat-form-field class="full-width">
+                    <mat-label>Synced Tables</mat-label>
+                    <textarea matInput disabled [value]='tables' rows="10"></textarea>
+                </mat-form-field>
+                <mat-divider></mat-divider>
+                <mat-card-actions style="text-align: right !important;">
+                    <button mat-raised-button type="button" (click)="previousState()">Back</button>
+                    <button mat-raised-button color='accent'
+                            (click)="downloadMobileRecords()"
+                            [disabled]="downloading || !serverContacted"
+                            type="button">
+                        Download Mobile Records
+                    </button>
+                    <button mat-raised-button color='accent'
+                            (click)="downloadCparp()"
+                            [disabled]="downloading || !serverContacted"
+                            type="button">
+                        Download CPARP Refill
+                    </button>
+                    <button mat-raised-button color='primary'
+                            (click)="sync()"
+                            [disabled]="syncing || !serverContacted"
+                            type="submit">
+                        Upload to Server
+                    </button>
+                </mat-card-actions>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
